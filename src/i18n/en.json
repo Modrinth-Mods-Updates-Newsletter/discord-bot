@@ -1,0 +1,36 @@
+{
+	"presence": {
+		"watching": {
+			"text": "Watching latest mods updates"
+		}
+	},
+	"commands": {
+		"ping": {
+			"text": "### Pong! {ping}ms."
+		}
+	},
+	"modals": {
+		"addamod": {
+			"title": "Follow a mod's updates",
+			"modId": {
+				"label": "Please enter your mod/plugin id",
+				"description": "You must past 𝗼𝗻𝗹𝘆 the id and not the entire link",
+				"placeholder": "fabric-api"
+			},
+			"modLoaders": {
+				"placeholder": "Select at least one mod/plugin loader",
+				"label": "Mod/plugin loaders",
+				"description": "You will be mentioned only for these loaders.",
+				"fabric": "Fast, Dev-friendly, Simple & Open-source. Recommanded.",
+				"quilt": "A fork of Fabric but community-driven. Recommanded.",
+				"forge": "The most popular and one of the oldests. Recommanded.",
+				"neoforge": "A fork of Forge's project community-driven. Recommanded.",
+				"papermc": "The first way to create plugins for servers by using PaperMC. Recommanded.",
+				"purpur": "A faster way to launch plugins for servers which need optimization. Recommanded.",
+				"spigot": "Another way to create plugins for servers. Recommanded.",
+				"folia": "A fork of PaperMC's project to improve large server's performances. Recommanded.",
+				"bukkit": "The father of Spigot, which is now obsolete."
+			}
+		}
+	}
+}

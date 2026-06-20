@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2025",
+    "module": "esnext",
+    "lib": ["ES2025"],
+    "types": ["node"],
+
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "verbatimModuleSyntax": true,
+    "noUncheckedSideEffectImports": true,
+    "isolatedModules": true,
+
+    "sourceMap": true,
+    "declaration": true
+  }
+}
