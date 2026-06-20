@@ -1,0 +1,11 @@
+bun.lock
+data.json
+
+
+.env
+node_modules
+*.log
+package-lock.json
+
+
+
