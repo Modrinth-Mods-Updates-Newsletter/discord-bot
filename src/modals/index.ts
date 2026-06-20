@@ -6,10 +6,13 @@ import {
 import * as addamod from './addamod'
 import { getLangFromInteraction } from '../i18n'
 
-export interface Data {
-	id: string,
+export interface ModalData {
 	modal: ModalBuilder,
 	execute: (interaction: ModalSubmitInteraction) => any
+}
+
+export interface Data extends ModalData {
+	id: string
 }
 
 export const getModalsList = (lang: string): Data[] => {
@@ -26,10 +29,7 @@ export const getModalsList = (lang: string): Data[] => {
 	return list
 }
 
-export const getModal = (id: string, lang: string): {
-	modal: ModalBuilder,
-	execute: (interaction: ModalSubmitInteraction) => any
-} => {
+export const getData = (id: string, lang: string): ModalData => {
 	const modals: Data[] = getModalsList(lang)
 
 	for (const data of getModalsList(lang)) {
@@ -42,11 +42,13 @@ export const getModal = (id: string, lang: string): {
 	
 	throw new Error(`Modal with id ${id} not found`)
 }
+export const getModal = (id: string, lang: string): ModalBuilder => getData(id, lang).modal
+export const getExecute = (id: string, lang: string): ((interaction: ModalSubmitInteraction) => any) => getData(id, lang).execute
 
 export const handleModals = async (interaction: ModalSubmitInteraction): Promise<any> => {
 	const lang = getLangFromInteraction(interaction)
 	const id = interaction.customId
 
-	const modal = getModal(id, lang)
-	return await modal.execute(interaction)
+	const execute = getExecute(id, lang)
+	return await execute(interaction)
 }
