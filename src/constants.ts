@@ -24,7 +24,7 @@ export const REGEX = {
 	MODRINTH_PROJECT_ID: /^[\w!@\$\(\)`.+,"\-']{3,64}$/
 }
 
-export const EMOJIS = {
+export const EMOJIS = { // Replace with yours
 	TRUE: "<:true:1518215170080637009>",
 	FALSE: "<:false:1518215169032065074>",
 	BETWEEN: "<:between:1518217136785588367>",
