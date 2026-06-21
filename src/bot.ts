@@ -77,6 +77,7 @@ client.on(Events.InteractionCreate, async (interaction: Interaction): Promise<bo
 client.on(Events.InteractionCreate, async (interaction: Interaction): Promise<boolean> => {
 	if (interaction.isModalSubmit()) {
 		await handleModals(interaction)
+		return true
 	}
 	return false
 })
