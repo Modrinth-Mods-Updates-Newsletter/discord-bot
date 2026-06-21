@@ -4,8 +4,9 @@ import {
 	TextInputStyle,
 	LabelBuilder,
 	type StringSelectMenuBuilder,
-	type ChatInputCommandInteraction,
-	type ModalSubmitInteraction
+	type ModalSubmitInteraction,
+	CheckboxGroupBuilder,
+	CheckboxGroupOptionBuilder
 } from "discord.js"
 
 import { translate } from "../i18n"
@@ -88,21 +89,44 @@ export const getData = (lang: string): Data => {
 				emoji: '1517499608798859425'
 			}
 		])
+	
+	modLoadersSelect
 		.setCustomId('modLoader')
 		.setPlaceholder(translate("modals.addamod.modLoaders.placeholder", lang))
 		.setMinValues(1)
-	modLoadersSelect
 		.setMaxValues(modLoadersSelect.options.length)
-		.setRequired(true)
 
 	const modLoadersLabel = new LabelBuilder()
 		.setLabel(translate("modals.addamod.modLoaders.label", lang))
 		.setDescription(translate("modals.addamod.modLoaders.description", lang))
 		.setStringSelectMenuComponent(modLoadersSelect)
 
+	const mentionCheckbox = new CheckboxGroupOptionBuilder()
+		.setLabel('Be mentioned')
+		.setValue('mention')
+		.setDefault(true)
+
+	const snapshotsCheckbox = new CheckboxGroupOptionBuilder()
+		.setLabel('See snapshots updates')
+		.setDescription('Mods are rarely making snapshots updates')
+		.setValue('snapshots')
+
+	const otherCheckboxGroup = new CheckboxGroupBuilder()
+		.setCustomId('other')
+		.setRequired(false)
+		.addOptions(
+			mentionCheckbox,
+			snapshotsCheckbox
+		)
+	
+	const othersLabel = new LabelBuilder()
+		.setLabel('Other')
+		.setCheckboxGroupComponent(otherCheckboxGroup)
+
 	modal.addLabelComponents(
 		modIdLabel,
-		modLoadersLabel
+		modLoadersLabel,
+		othersLabel
 	)
 
 	return {
