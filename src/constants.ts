@@ -27,7 +27,7 @@ export const REGEX = {
 export const EMOJIS = { // Replace with yours
 	TRUE: "<:true:1518215170080637009>",
 	FALSE: "<:false:1518215169032065074>",
-	BETWEEN: "<:between:1518217136785588367>",
+	BETWEEN: "<:between:1518243196767830126>",
 	OFF: "<:off:1518234441212891206>",
 	TRUE_JOIN: "<:true_join:1518234443385540620>",
 	TRUE_JOIN_END: "<:true_join_end:1518234442450206871>",
