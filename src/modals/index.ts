@@ -3,7 +3,7 @@ import {
 	type ModalBuilder
 } from 'discord.js'
 
-import * as addamod from './addamod'
+import * as addamod from './data/addamod'
 import { getLangFromInteraction } from '../i18n'
 
 export interface ModalData {

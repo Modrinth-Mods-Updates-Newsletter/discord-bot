@@ -1,21 +1,17 @@
 import {
-	ModalBuilder,
-	TextInputBuilder,
-	TextInputStyle,
-	LabelBuilder,
-	type StringSelectMenuBuilder,
-	type ModalSubmitInteraction,
 	CheckboxGroupBuilder,
-	CheckboxGroupOptionBuilder
+	CheckboxGroupOptionBuilder,
+	LabelBuilder,
+	ModalBuilder,
+	StringSelectMenuBuilder,
+	TextInputBuilder,
+	TextInputStyle
 } from "discord.js"
 
-import { translate } from "../i18n"
-import { createStringSelectMenu } from "../utils"
-import type { Data } from "."
-
-export const execute = async (interaction: ModalSubmitInteraction): Promise<any> => {
-	console.log(interaction.isModalSubmit())
-}
+import { execute } from "../execute/addamod"
+import { translate } from "../../i18n"
+import { createStringSelectMenu } from "../../utils"
+import type { Data } from ".."
 
 export const getData = (lang: string): Data => {
 	const modal = new ModalBuilder()
