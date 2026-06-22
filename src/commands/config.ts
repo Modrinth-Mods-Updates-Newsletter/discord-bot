@@ -9,7 +9,7 @@ import { getLangFromInteraction } from "../i18n"
 import { getModal } from "../modals"
 
 export const data = new SlashCommandBuilder()
-	.setName('config_')
+	.setName('config')
 	.setDescription('Change something about the bot\'s behaviour')
 	.addStringOption((option: SlashCommandStringOption) =>
 		option
