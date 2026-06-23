@@ -1,4 +1,5 @@
 import {
+	ActionRowBuilder,
 	StringSelectMenuBuilder,
 	StringSelectMenuOptionBuilder,
 	type ComponentEmojiResolvable
@@ -30,3 +31,5 @@ export const createStringSelectMenu = (array: {
 	}
 	return new StringSelectMenuBuilder().addOptions(finalArray)
 }
+
+export const wrapInRow = (...args: any[]) => new ActionRowBuilder().addComponents(args)
