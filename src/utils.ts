@@ -2,7 +2,8 @@ import {
 	ActionRowBuilder,
 	StringSelectMenuBuilder,
 	StringSelectMenuOptionBuilder,
-	type ComponentEmojiResolvable
+	type ComponentEmojiResolvable,
+	type MessageActionRowComponentBuilder
 } from "discord.js"
 
 export const arrayRand = (array: any[]): any => {
@@ -32,4 +33,4 @@ export const createStringSelectMenu = (array: {
 	return new StringSelectMenuBuilder().addOptions(finalArray)
 }
 
-export const wrapInRow = (...args: any[]) => new ActionRowBuilder().addComponents(args)
+export const wrapInRow = (...args: any[]) => new ActionRowBuilder<MessageActionRowComponentBuilder>().addComponents(...args)
