@@ -1,10 +1,8 @@
 import fs from 'fs'
-import { PATHS } from '../constants';
-import type { Client } from 'discord.js';
+import { REGEX } from '../constants'
 
 export class JsonStore {
 	path: string
-	client: Client
 	data: {
 		guilds: Record<string, {
 			channelId: string,
@@ -21,9 +19,8 @@ export class JsonStore {
 		}>
 	}
 
-	constructor (path: string = PATHS.STORE_FILE, client: Client) {
+	constructor (path: string = 'data.json') {
 		this.path = path
-		this.client = client
 
 		if (!fs.existsSync(this.path)) {
 			fs.writeFileSync(this.path, "{}")
@@ -42,8 +39,7 @@ export class JsonStore {
 	}
 
 	registerMod (userId: string | null, guildId: string | null, modId: string, loaders: string[], ignoreSnapshots: boolean) {
-		if (!/^([\w-]+)$/.test(modId)) return
-		console.log(modId)
+		if (!REGEX.MODRINTH_PROJECT_ID.test(modId)) throw new Error("Bad slug")
 		if (guildId) {
 			this.data.guilds[guildId] = this.data.guilds[guildId] || {}
 			this.data.guilds[guildId].mods[modId]
