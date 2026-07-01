@@ -1,11 +1,13 @@
-bun.lock
-data.json
-
-
+# Environement variables
 .env
-node_modules
+
+# Logs
 *.log
+
+# Downloaded modules
+node_modules
+bun.lock
 package-lock.json
 
-
-
+# Local storage
+data.json
