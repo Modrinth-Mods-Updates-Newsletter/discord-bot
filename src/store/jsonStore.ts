@@ -2,8 +2,8 @@ import fs from 'fs'
 import { REGEX } from '../constants'
 
 export class JsonStore {
-	path: string
-	data: {
+	private path: string
+	private data: {
 		guilds: Record<string, {
 			channelId: string,
 			mods: Record<string, {
