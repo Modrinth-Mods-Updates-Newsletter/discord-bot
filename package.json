@@ -5,7 +5,8 @@
 	"main": "index.ts",
 	"scripts": {
 		"start": "bun index.ts",
-		"dev": "bun --watch index.ts"
+		"dev": "bun --watch index.ts",
+		"build": "bun build index.ts"
 	},
 	"author": "Marax",
 	"license": "MIT",
