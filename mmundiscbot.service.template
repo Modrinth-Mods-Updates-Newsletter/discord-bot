@@ -1,0 +1,14 @@
+[Unit]
+Description=The official Discord bot for MMUN!
+After=network.target
+
+[Service]
+Type=simple
+ExecStart={bunDir} {dir}/index.ts
+User=root
+WorkingDirectory={dir}
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target

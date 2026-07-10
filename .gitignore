@@ -11,3 +11,9 @@ package-lock.json
 
 # Local storage
 data.json
+
+# Javascript generated & code archives
+dist
+
+# Generated templates
+*.service

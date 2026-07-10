@@ -19,4 +19,23 @@ Simple, one command and you're done!
 > [!TIP]
 > If you want to contribute, please go to our [Discord guild](https://discord.gg/ZE8dECRmXW) and send your suggestion on the channel [#Suggestions](https://discord.gg/ZE8dECRmXW) to be approved because imagine that your suggestion is rejected: we don't want you to work for nothing (you can do ofc) ;)
 
-Made by Marax ([131382958206694976](https://discord.com/users/131382958206694976))
+### Compile
+`bun build:execs` and check `dist/`
+
+### Archive code
+`bun build:archives` and check `dist/`
+
+### Enable automatic start (optional)
+To enable the automatic start of the program at the launch of the computer, you must generate one for your computer.
+> Execute `bun build:service`
+
+And enable the service with the superuser
+> Execute `sudo systemctl enable ./mmundiscbot.service`
+
+And you can now start the service without restart
+> Execute `sudo systemctl start mmundiscbot`
+
+> [!IMPORTANT]
+> If you're not on your past computer which you have the `.service` file saved, this may not work with your new computer, so re-execute the command to patch the .service file, and re-enable the service.
+
+Made by [Marax](https://discord.com/users/131382958206694976) ([131382958206694976](https://discord.com/users/131382958206694976))

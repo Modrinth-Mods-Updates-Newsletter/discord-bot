@@ -6,7 +6,14 @@
 	"scripts": {
 		"start": "bun index.ts",
 		"dev": "bun --watch index.ts",
-		"build": "bun build index.ts"
+		"build:one-file": "bun build src/bot.ts --outfile dist/index.js --target=bun",
+		"build:minified": "bun build src/bot.ts --outfile dist/index.min.js --target=bun --minify",
+		"build:compress:zip": "zip -r dist/code.zip src",
+		"build:compress:tar-gzip": "tar cfvz dist/code.tar.gz src",
+		"build:execs": "bun run build:one-file && bun run build:minified",
+		"build:archives": "bun run build:compress:zip && bun run build:compress:tar-gzip",
+		"build": "bun run build:execs && bun run build:archives && echo \"→ Builds ended\"",
+		"build:service": "bun run gen-service-file"
 	},
 	"author": "Marax",
 	"license": "MIT",
