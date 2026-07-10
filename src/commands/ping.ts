@@ -34,7 +34,7 @@ export const execute = async (interaction: ChatInputCommandInteraction) => {
 
 	const lang: string = getLangFromInteraction(interaction)
 
-	const text: string = translate("commands.ping.text", lang, { ping })
+	const text: string = translate("commands.ping.text", lang, { ping: String(ping) })
 	const textDisplay = new TextDisplayBuilder().setContent(text)
 
 	const gifUrl: string = arrayRand(GIFS.PONG)
@@ -48,5 +48,5 @@ export const execute = async (interaction: ChatInputCommandInteraction) => {
 	interaction.editReply({
 		components: [container],
 		flags: MessageFlags.IsComponentsV2
-	})
+	}).catch()
 }

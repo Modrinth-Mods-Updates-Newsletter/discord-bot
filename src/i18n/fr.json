@@ -25,11 +25,56 @@
 				"quilt": "Un fork de Fabric mais construit par la communauté. Recommandé.",
 				"forge": "Le plus populaire et l'un des plus vieux. Recommandé.",
 				"neoforge": "Un fork du projet de Forge construit par la communauté. Recommandé.",
-				"papermc": "La première façon de créer des plugins pour des serveurs en utilisant PaperMC. Recommandé.",
+				"papermc": "La première façon de créer des plugins pour des serveurs. Recommandé.",
 				"purpur": "Une manière plus rapide de lancer des plugins pour des serveurs qui ont besoin d'opti. Recommandé.",
 				"spigot": "Une autre manière de créer des plugins pour des serveurs. Recommandé.",
-				"folia": "Un fork du projet de PaperMC pour améliorer les performances des gros serveurs. Recommandé.",
+				"folia": "Un fork du projet de Paper pour améliorer les performances des gros serveurs. Recommandé.",
 				"bukkit": "Le papa de Spigot, qui est maintenant obsolète."
+			},
+			"misc": {
+				"ping": "Être mentionné",
+				"snapshots": "Recevoir les sorties pour snapshots"
+			}
+		}
+	},
+	"containers": {
+		"addamod": {
+			"verifMod": {
+				"containerText": "{0largeEmoji} Vérification du slug du mod\n {0joinEmoji1}Vérification par regex\n {0joinEmojiEnd}Vérification par l'API de Modrinth\n\n{1largeEmoji} Vérification des loaders\n {1joinEmojiEnd}Vérification par l'API de Modrinth",
+				"textDisplays": {
+					"0": "### {beginning}Requête sur la Modrinth API{3dots}",
+					"1": "### {beginning}Extraction du contenu{3dots}",
+					"2": "### {beginning}{3dots}"
+				},
+				"errs": {
+					"slug": "Votre slug n'est pas correct.",
+					"loaders": "Vous avez demandé d'avoir une notification pour un loader qui n'existe pas."
+				}
+			},
+			"mentions": {
+				"placeholder": "Séléctionnez au moins une mention…",
+				"text": "Vous avez demandé de mentionner un rôle ou une personne, veuillez les entrer ci-dessous.",
+				"skip": "Passer"
+			},
+			"path": "> Slug du mod : {slug}\n> Lanceurs de mods sélectionnés : {loaders}\n> Passer outre les snapshots : {bypassSnapshots}",
+			"verification": "### Est-ce correct ?\n> Slug du mod : {slug}\n> Lanceurs de mods sélectionnés : {loaders}\n> Passer outre les snapshots : {bypassSnapshots}\n> Mention(s) : {mentions}",
+			"saveMod": "{0largeEmoji} Procuration du nom du mod\n {0joinEmojiEnd}Procuration par l'API de Modrinth\n\n{1largeEmoji} Procuration de l'image du mod\n {1joinEmojiEnd}Procuration par l'API de Modrinth",
+			"modSaved": "Vous venez de suivre un mod et vous/votre communauté serez notifiés dès qu'une mise à jour de {modName} sortira !"
+		}
+	},
+	"menus": {
+		"addamod": {
+			"uidNotCorrect": "Vous n'êtes pas l'auteur de ce message."
+		}
+	},
+	"buttons": {
+		"addamod": {
+			"continue": {
+				"label": "Continue"
+			},
+			"cancel": {
+				"label": "Cancel",
+				"cmdCanceled": "Command canceled."
 			}
 		}
 	}

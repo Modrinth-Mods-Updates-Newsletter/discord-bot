@@ -1,7 +1,6 @@
 "use strict"
 
 import dotenv from "dotenv"
-
 dotenv.config({ quiet: true })
 
 import {
@@ -9,14 +8,31 @@ import {
 	Client,
 	Events,
 	GatewayIntentBits,
-	type ModalSubmitInteraction,
 	Routes,
-	type Interaction
+	type Interaction,
+	StringSelectMenuInteraction,
+	MentionableSelectMenuInteraction,
+	RoleSelectMenuInteraction,
+	UserSelectMenuInteraction,
+	ChannelSelectMenuInteraction,
+	type AnySelectMenuInteraction
 } from "discord.js"
+
+import {
+	commandModules,
+	getCommands,
+	getRest
+} from "./commands"
 
 import { LANG } from "./constants"
 import { translate } from "./i18n"
+
 import { JsonStore } from "./store/jsonStore"
+import { SessionStorage } from "./store/sessionStorage"
+
+import { handleModals } from "./modals"
+import { handleMenus } from "./menus"
+import { handleButtons } from "./buttons"
 
 if (!process.env.DISCORD_TOKEN) {
 	console.error('TOKEN is not set; cannot start bot')
@@ -40,14 +56,8 @@ const client = new Client({
 export const token = process.env.DISCORD_TOKEN
 export const clientId = process.env.DISCORD_CLIENT_ID
 
-import {
-	commandModules,
-	getCommands,
-	getRest
-} from "./commands"
-import { handleModals } from "./modals"
-
-export const store = new JsonStore(undefined, client)
+export const store = new JsonStore()
+export const sessionStorage = new SessionStorage(client)
 
 const registerCommands = async () => {
 	if (!clientId) {
@@ -59,7 +69,7 @@ const registerCommands = async () => {
 }
 
 client.on(Events.ClientReady, () => {
-	console.log(`Logged in as ${client?.user?.tag}!`)
+	console.info(`Logged in as ${client?.user?.tag}!`)
 })
 
 client.on(Events.InteractionCreate, async (interaction: Interaction): Promise<boolean> => {
@@ -77,6 +87,30 @@ client.on(Events.InteractionCreate, async (interaction: Interaction): Promise<bo
 client.on(Events.InteractionCreate, async (interaction: Interaction): Promise<boolean> => {
 	if (interaction.isModalSubmit()) {
 		await handleModals(interaction)
+		return true
+	}
+	return false
+})
+
+export const isASelectMenu = (interaction: Interaction): interaction is AnySelectMenuInteraction => {
+	return interaction instanceof StringSelectMenuInteraction ||
+		   interaction instanceof MentionableSelectMenuInteraction ||
+		   interaction instanceof RoleSelectMenuInteraction ||
+		   interaction instanceof UserSelectMenuInteraction ||
+		   interaction instanceof ChannelSelectMenuInteraction
+}
+
+client.on(Events.InteractionCreate, async (interaction: Interaction): Promise<boolean> => {
+	if (isASelectMenu(interaction)) {
+		await handleMenus(interaction)
+		return true
+	}
+	return false
+})
+
+client.on(Events.InteractionCreate, async (interaction: Interaction): Promise<boolean> => {
+	if (interaction.isButton()) {
+		await handleButtons(interaction)
 		return true
 	}
 	return false

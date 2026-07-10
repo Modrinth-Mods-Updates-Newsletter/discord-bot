@@ -1,5 +1,6 @@
 import fs from 'fs'
 import { REGEX } from '../constants'
+import { readOnlyArr } from '../utils'
 
 export class JsonStore {
 	private path: string
@@ -38,11 +39,26 @@ export class JsonStore {
 		return this.data.guilds[guildId].channelId = channelId
 	}
 
-	registerMod (userId: string | null, guildId: string | null, modId: string, loaders: string[], ignoreSnapshots: boolean) {
-		if (!REGEX.MODRINTH_PROJECT_ID.test(modId)) throw new Error("Bad slug")
+	registerMod (userId: string | null, guildId: string | null | undefined, slug: string, loaders: readonly string[] | string[], ignoreSnapshots: boolean): string {
+		if (!REGEX.MODRINTH_PROJECT_ID.test(slug)) throw new Error("Bad slug")
 		if (guildId) {
+			this.data.guilds = this.data.guilds || {}
 			this.data.guilds[guildId] = this.data.guilds[guildId] || {}
-			this.data.guilds[guildId].mods[modId]
+			this.data.guilds[guildId].mods = this.data.guilds[guildId].mods || {}
+			this.data.guilds[guildId].mods[slug] = this.data.guilds[guildId].mods[slug] || {}
+			this.data.guilds[guildId].mods[slug].loaders = readOnlyArr(loaders)
+			this.data.guilds[guildId].mods[slug].ignoreSnapshots = ignoreSnapshots
+		} else if (userId) {
+			this.data.users = this.data.users || {}
+			this.data.users[userId] = this.data.users[userId] || {}
+			this.data.users[userId].mods = this.data.users[userId].mods || {}
+			this.data.users[userId].mods[slug] = this.data.users[userId].mods[slug] || {}
+			this.data.users[userId].mods[slug].loaders = readOnlyArr(loaders)
+			this.data.users[userId].mods[slug].ignoreSnapshots = ignoreSnapshots
+		} else {
+			throw new Error('guildId & userId are undefined')
 		}
+		this.save()
+		return slug
 	}
 }

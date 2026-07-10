@@ -5,7 +5,7 @@ import type { Interaction } from 'discord.js'
 
 const locales: Record<string, Record<string, any>> = { en, fr }
 
-export function translate(key: string, lang: string, vars: Record<string, any> = {}) {
+export function translate(key: string, lang: string, vars: Record<string, string> = {}) {
   const dict = locales[lang] || en
   const template = key.split('.').reduce((o, k) => (o && o[k] != null ? o[k] : undefined), dict)
   const str = typeof template === 'string' ? template : key
@@ -13,5 +13,5 @@ export function translate(key: string, lang: string, vars: Record<string, any> =
 }
 
 export function getLangFromInteraction(interaction: Interaction) {
-  return interaction?.locale?.startsWith(LANG.FR) ? LANG.FR : LANG.EN
+  return interaction.locale.startsWith(LANG.FR) ? LANG.FR : LANG.EN
 }

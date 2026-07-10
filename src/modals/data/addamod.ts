@@ -8,12 +8,17 @@ import {
 	TextInputStyle
 } from "discord.js"
 
+import type {
+	DataId
+} from "../../utils/interfaces"
+
 import { execute } from "../execute/addamod"
 import { translate } from "../../i18n"
 import { createStringSelectMenu } from "../../utils"
-import type { Data } from ".."
+import { EMOJIS } from "../../constants"
+import type { ModalExecutable } from ".."
 
-export const getData = (lang: string): Data => {
+export const getData = (lang: string): DataId<ModalBuilder, ModalExecutable> => {
 	const modal = new ModalBuilder()
 		.setCustomId('addamod')
 		.setTitle(translate("modals.addamod.title", lang))
@@ -31,58 +36,64 @@ export const getData = (lang: string): Data => {
 
 	const modLoadersSelect: StringSelectMenuBuilder = createStringSelectMenu([
 			{
+				label: "Datapack",
+				description: translate("modals.addamod.modLoaders.datapack", lang),
+				value: "datapack",
+				emoji: EMOJIS.DATAPACK_ICON
+			},
+			{
 				label: "Fabric",
 				description: translate("modals.addamod.modLoaders.fabric", lang),
 				value: "fabric",
-				emoji: '1517475209139978363'
+				emoji: EMOJIS.FABRIC_ICON
 			},
 			{
 				label: "Quilt",
 				description: translate("modals.addamod.modLoaders.quilt", lang),
 				value: "quilt",
-				emoji: '1517476031286607945'
+				emoji: EMOJIS.QUILT_ICON
 			},
 			{
 				label: "Forge",
 				description: translate("modals.addamod.modLoaders.forge", lang),
 				value: "forge",
-				emoji: '1517476878242287626'
+				emoji: EMOJIS.FORGE_ICON
 			},
 			{
 				label: "NeoForge",
 				description: translate("modals.addamod.modLoaders.neoforge", lang),
 				value: "neoforge",
-				emoji: '1517496107587080233'
+				emoji: EMOJIS.NEOFORGE_ICON
 			},
 			{
-				label: "PaperMC",
+				label: "Paper",
 				description: translate("modals.addamod.modLoaders.papermc", lang),
-				value: "papermc",
-				emoji: '1517497490054578177'
+				value: "paper",
+				emoji: EMOJIS.PAPERMC_ICON
 			},
 			{
 				label: "Purpur",
 				description: translate("modals.addamod.modLoaders.purpur", lang),
 				value: "purpur",
-				emoji: '1517498713738707106'
+				emoji: EMOJIS.PURPUR_ICON
 			},
 			{
 				label: "Spigot",
 				description: translate("modals.addamod.modLoaders.spigot", lang),
 				value: "spigot",
-				emoji: '1517498983248035993'
+				emoji: EMOJIS.SPIGOT_ICON
 			},
 			{
 				label: "Folia",
 				description: translate("modals.addamod.modLoaders.folia", lang),
 				value: "folia",
-				emoji: '1517499610900332607'
+				emoji: EMOJIS.FOLIA_ICON
 			},
 			{
 				label: "Bukkit",
 				description: translate("modals.addamod.modLoaders.bukkit", lang),
 				value: "bukkit",
-				emoji: '1517499608798859425'
+				emoji: EMOJIS.BUKKIT_ICON
 			}
 		])
 	
@@ -98,36 +109,36 @@ export const getData = (lang: string): Data => {
 		.setStringSelectMenuComponent(modLoadersSelect)
 
 	const mentionCheckbox = new CheckboxGroupOptionBuilder()
-		.setLabel('Be mentioned')
+		.setLabel(translate('modals.addamod.misc.ping', lang))
 		.setValue('mention')
 		.setDefault(true)
 
 	const snapshotsCheckbox = new CheckboxGroupOptionBuilder()
-		.setLabel('See snapshots updates')
+		.setLabel(translate('modals.addamod.misc.snapshots', lang))
 		.setDescription('Mods are rarely making snapshots updates')
 		.setValue('snapshots')
 
-	const otherCheckboxGroup = new CheckboxGroupBuilder()
-		.setCustomId('other')
+	const miscCheckboxGroup = new CheckboxGroupBuilder()
+		.setCustomId('misc')
 		.setRequired(false)
 		.addOptions(
 			mentionCheckbox,
 			snapshotsCheckbox
 		)
 	
-	const othersLabel = new LabelBuilder()
-		.setLabel('Other')
-		.setCheckboxGroupComponent(otherCheckboxGroup)
+	const miscLabel = new LabelBuilder()
+		.setLabel('Misc')
+		.setCheckboxGroupComponent(miscCheckboxGroup)
 
 	modal.addLabelComponents(
 		modIdLabel,
 		modLoadersLabel,
-		othersLabel
+		miscLabel
 	)
 
 	return {
 		id: modal.data.custom_id || "",
-		modal,
+		component: modal,
 		execute
 	}
 }

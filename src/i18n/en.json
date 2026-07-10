@@ -13,8 +13,8 @@
 		"addamod": {
 			"title": "Follow a mod's updates",
 			"modId": {
-				"label": "Please enter your mod/plugin id",
-				"description": "You must past 𝗼𝗻𝗹𝘆 the id and not the entire link",
+				"label": "Please enter your mod/plugin slug",
+				"description": "You must past 𝗼𝗻𝗹𝘆 the slug and not the entire link",
 				"placeholder": "fabric-api"
 			},
 			"modLoaders": {
@@ -25,11 +25,57 @@
 				"quilt": "A fork of Fabric but community-driven. Recommanded.",
 				"forge": "The most popular and one of the oldests. Recommanded.",
 				"neoforge": "A fork of Forge's project community-driven. Recommanded.",
-				"papermc": "The first way to create plugins for servers by using PaperMC. Recommanded.",
+				"papermc": "The first way to create plugins for servers. Recommanded.",
 				"purpur": "A faster way to launch plugins for servers which need optimization. Recommanded.",
 				"spigot": "Another way to create plugins for servers. Recommanded.",
-				"folia": "A fork of PaperMC's project to improve large server's performances. Recommanded.",
-				"bukkit": "The father of Spigot, which is now obsolete."
+				"folia": "A fork of Paper's project to improve large server's performances. Recommanded.",
+				"bukkit": "The father of Spigot, which is now obsolete.",
+				"datapack": "The official way to mod the game."
+			},
+			"misc": {
+				"ping": "Be mentioned",
+				"snapshots": "See snapshots updates"
+			}
+		}
+	},
+	"containers": {
+		"addamod": {
+			"verifMod": {
+				"containerText": "{0largeEmoji} Mod slug verification\n {0joinEmoji1}Regex verification\n {0joinEmojiEnd}Modrinth API verification\n\n{1largeEmoji} Loaders verification\n {1joinEmojiEnd}Modrinth API verification",
+				"textDisplays": {
+					"0": "### {beginning}Fetching Modrinth API{3dots}",
+					"1": "### {beginning}Extracting Content{3dots}",
+					"2": "### {beginning}{3dots}"
+				},
+				"errs": {
+					"slug": "Your mod slug is not correct.",
+					"loaders": "You asked for a loader which hasn't releases on this mod."
+				}
+			},
+			"mentions": {
+				"placeholder": "Select at least one mention…",
+				"text": "You asked to mention someone or a role, please enter it right below.",
+				"skip": "Skip"
+			},
+			"path": "> Mod slug: {slug}\n> Selected loaders: {loaders}\n> Bypass snapshots: {bypassSnapshots}",
+			"verification": "### Is this good?\n> Mod slug: {slug}\n> Selected loaders: {loaders}\n> Bypass snapshots: {bypassSnapshots}\n> Mention(s): {mentions}",
+			"saveMod": "{0largeEmoji} Getting mod name\n {0joinEmojiEnd}Getting by Modrinth API\n\n{1largeEmoji} Getting mod image\n {1joinEmojiEnd}Getting by Modrinth API",
+			"modSaved": "You've just followed a mod and you/your members will receive updates for {modName}!"
+		}
+	},
+	"menus": {
+		"addamod": {
+			"uidNotCorrect": "You're not the author of the message."
+		}
+	},
+	"buttons": {
+		"addamod": {
+			"continue": {
+				"label": "Continue"
+			},
+			"cancel": {
+				"label": "Cancel",
+				"cmdCanceled": "Command canceled."
 			}
 		}
 	}

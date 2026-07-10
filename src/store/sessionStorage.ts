@@ -5,4 +5,16 @@ export class SessionStorage extends Map {
 		super()
 		this.set('client', client)
 	}
+
+	getClient () {
+		return this.get('client')
+	}
+
+	getData () {
+		return this.get('data')
+	}
+
+	getUserSessionStorage (userId: string) {
+		return (this.getData() || new Map()).get(userId)
+	}
 }

@@ -1,11 +1,14 @@
 import { REST } from 'discord.js'
+import { token } from '../bot'
+
 import * as ping from './ping'
 import * as config from './config'
-import { token } from '../bot'
+import * as credits from './credits'
 
 export const commandModules: Record<string, any>[] = [
 	ping,
-	config
+	config,
+	credits
 ]
 
 export const getCommands = () => {
