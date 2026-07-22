@@ -17,13 +17,10 @@ Simple, one command and you're done!
 5. `bun start`
 
 > [!TIP]
-> If you want to contribute, please go to our [Discord guild](https://discord.gg/ZE8dECRmXW) and send your suggestion on the channel [#Suggestions](https://discord.gg/ZE8dECRmXW) to be approved because imagine that your suggestion is rejected: we don't want you to work for nothing (you can do ofc) ;)
+> If you want to contribute, please go to our [Discord guild](https://discord.gg/ZE8dECRmXW) and send your suggestion on the channel [#Suggestions](https://discord.gg/ZE8dECRmXW) to be approved because imagine that your suggestion is rejected: we don't want you to work for nothing :) (you can do ofc)
 
 ### Compile
-`bun build:execs` and check `dist/`
-
-### Archive code
-`bun build:archives` and check `dist/`
+`bun run build` and check `dist/`
 
 ### Enable automatic start (optional)
 To enable the automatic start of the program at the launch of the computer, you must generate one for your computer.
