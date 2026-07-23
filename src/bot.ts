@@ -40,13 +40,7 @@ if (!process.env.DISCORD_TOKEN) {
 }
 
 const client = new Client({
-	intents: [
-		GatewayIntentBits.Guilds,
-		GatewayIntentBits.GuildMessages,
-		GatewayIntentBits.GuildMembers,
-		GatewayIntentBits.MessageContent,
-		GatewayIntentBits.GuildMessageReactions,
-	],
+	intents: [],
 	presence: {
 		status: 'idle',
 		activities: [{ name: translate('presence.watching.text', LANG.DEFAULT), type: ActivityType.Watching }],
