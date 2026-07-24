@@ -34,6 +34,12 @@ export const execute = async (interaction: ChatInputCommandInteraction) => {
 		case "addamod": {
 			const modal: ModalBuilder = getModal("addamod", lang)
 			await interaction.showModal(modal)
+
+			break
+		}
+
+		default: {
+			
 		}
 	}
 }

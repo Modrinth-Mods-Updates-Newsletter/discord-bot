@@ -6,10 +6,10 @@
 	"scripts": {
 		"start": "bun index.ts",
 		"dev": "bun --watch index.ts",
+		"launch": "bun scripts",
 		"build": "bun build:file && bun build:file:minified && echo -e \"\\e[1m→ Builds successfully ended\"",
 		"build:file": "bun build index.ts --outfile dist/index.js --target=bun",
-		"build:file:minified": "bun build index.ts --outfile dist/index.min.js --target=bun --minify",
-		"build:service": "bun run gen-service-file"
+		"build:file:minified": "bun build index.ts --outfile dist/index.min.js --target=bun --minify"
 	},
 	"author": "Marax",
 	"license": "MIT",
@@ -17,7 +17,8 @@
 	"dependencies": {
 		"axios": "^1.18.0",
 		"discord.js": "^14.26.4",
-		"dotenv": "^17.4.2"
+		"dotenv": "^17.4.2",
+		"minimist": "^1.2.8"
 	},
 	"devDependencies": {
 		"@types/node": "^25.9.4",

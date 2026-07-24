@@ -50,3 +50,7 @@ export const LINKS = { // idem; replace with yours
 	DISCORD_GUILD_CREDITS: "https://discord.gg/WfF5mmUpX6",
 	BOT_OAUTH: "https://ptb.discord.com/oauth2/authorize?client_id="+process.env.CLIENT_ID
 }
+
+export const SCRIPTS = [
+	'genservicefile'
+]
