@@ -14,6 +14,8 @@ import type {
 } from 'discord.js'
 
 import * as addamod from './data/addamod'
+import * as config from './data/config'
+
 import { isASelectMenu } from '../bot'
 import { removeVars } from '../utils'
 
@@ -24,7 +26,8 @@ export const getMenusList = (interaction: Interaction, params?: Record<string, a
 	const menus: {
 		getData: (interaction: Interaction, params?: Record<string, any>) => IdMenuData
 	}[] = [
-		addamod
+		addamod,
+		config
 	]
 	const list: IdMenuData[] = []
 	for (const menu of menus) {

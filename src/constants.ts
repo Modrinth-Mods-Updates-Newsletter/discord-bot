@@ -48,8 +48,13 @@ export const EMOJIS = { // Replace with yours
 
 export const LINKS = { // idem; replace with yours
 	DISCORD_GUILD: {
-		CREDITS: "https://discord.gg/WfF5mmUpX6"
+		CREDITS: "https://discord.gg/WfF5mmUpX6",
+		CONFIG: 'https://discord.gg/5KDYQ5uF7H'
 	},
 	BOT_OAUTH: "https://ptb.discord.com/oauth2/authorize?client_id="+process.env.CLIENT_ID,
-	BOT_WEBSITE: 'https://saddling-symphonic-consensus.ngrok-free.dev'
+	BOT_WEBSITE: {
+		ROOT: 'https://saddling-symphonic-consensus.ngrok-free.dev/',
+		DOCUMENTATION: 'https://saddling-symphonic-consensus.ngrok-free.dev/docs/',
+		PANEL: 'https://saddling-symphonic-consensus.ngrok-free.dev/panel/'
+	}
 }

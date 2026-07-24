@@ -61,11 +61,22 @@
 			"verification": "### Is this good?\n> Mod slug: {slug}\n> Selected loaders: {loaders}\n> Bypass snapshots: {bypassSnapshots}\n> Mention(s): {mentions}",
 			"saveMod": "{0largeEmoji} Getting mod name\n {0joinEmojiEnd}Getting by Modrinth API\n\n{1largeEmoji} Getting mod image\n {1joinEmojiEnd}Getting by Modrinth API",
 			"modSaved": "You've just followed a mod and you/your members will receive updates for {modName}!"
+		},
+		"config": {
+			"principalText": "### MMUN's configuration menu\nThanks to the menu on the bottom, you can choose what to configure/add/remove on all the functions of the bot <@{botId}>\nYou can also [join the support guild]({discordGuild}), [view the documentation]({docsLink}) or [go on the configuration panel]({panelLink})"
 		}
 	},
 	"menus": {
 		"addamod": {
 			"uidNotCorrect": "You're not the author of the message."
+		},
+		"config": {
+			"placeholder": "Select a thing to configure"
+		},
+		"options": {
+			"config": {
+				"addamod": "Follow a mod's updates"
+			}
 		}
 	},
 	"buttons": {
@@ -77,6 +88,11 @@
 				"label": "Cancel",
 				"cmdCanceled": "Command canceled."
 			}
+		},
+		"config": {
+			"guildInvit": "Support guild",
+			"documentation": "Documentation",
+			"panel": "Config panel"
 		}
 	},
 	"scripts": {

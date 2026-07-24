@@ -60,11 +60,22 @@
 			"verification": "### Est-ce correct ?\n> Slug du mod : {slug}\n> Lanceurs de mods sélectionnés : {loaders}\n> Passer outre les snapshots : {bypassSnapshots}\n> Mention(s) : {mentions}",
 			"saveMod": "{0largeEmoji} Procuration du nom du mod\n {0joinEmojiEnd}Procuration par l'API de Modrinth\n\n{1largeEmoji} Procuration de l'image du mod\n {1joinEmojiEnd}Procuration par l'API de Modrinth",
 			"modSaved": "Vous venez de suivre un mod et vous/votre communauté serez notifiés dès qu'une mise à jour de {modName} sortira !"
+		},
+		"config": {
+			"principalText": "### Menu de configuration du robot MMUN\nGrâce au menu ci-dessous, vous pouvez choisir quoi configurer/ajouter/retirer sur toutes les fonctionnalités du robot <@{botId}>\nVous pouvez également [rejoindre la guilde de support]({discordGuild}), [regarder la documentation]({docsLink}) ou [aller sur le panel de configuration]({panelLink})"
 		}
 	},
 	"menus": {
 		"addamod": {
 			"uidNotCorrect": "Vous n'êtes pas l'auteur de ce message."
+		},
+		"config": {
+			"placeholder": "Sélectionnez une chose à configurer"
+		},
+		"options": {
+			"config": {
+				"addamod": "Suivre les mises à jour d'un mod"
+			}
 		}
 	},
 	"buttons": {
@@ -76,6 +87,11 @@
 				"label": "Cancel",
 				"cmdCanceled": "Command canceled."
 			}
+		},
+		"config": {
+			"guildInvit": "Guilde de support",
+			"documentation": "Documentation",
+			"panel": "Panel de configuration"
 		}
 	}
 }
