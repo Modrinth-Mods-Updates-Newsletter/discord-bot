@@ -7,6 +7,7 @@
 		"start": "bun index.ts",
 		"dev": "bun --watch index.ts",
 		"launch": "bun scripts",
+		"help_": "bun launch help",
 		"build": "bun build:file && bun build:file:minified && echo -e \"\\e[1m→ Builds successfully ended\"",
 		"build:file": "bun build index.ts --outfile dist/index.js --target=bun",
 		"build:file:minified": "bun build index.ts --outfile dist/index.min.js --target=bun --minify"

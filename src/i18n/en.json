@@ -80,7 +80,8 @@
 		}
 	},
 	"scripts": {
-		"usage": "Usage: bun launch  (<script>)\n       bun scripts (<script>)\n\nScripts:\n  genservicefile  Generate a .service file",
-		"notFound": "Script {script} not found, please rewrite the script correctly."
+		"usage": "Usage: bun launch  (<script>)\n         ╰ scripts\n\nScripts:\n  genservicefile  Generate a .service file\n  help            Show the help menu",
+		"notFound": "Script {script} not found, please rewrite the script correctly.",
+		"help": "Usage: bun <command> <OPTIONS>\n\nCommands:\n  start            Start the bot\n  dev              Start the bot with watchdog\n  run build        Build a .js & a .min.js\n  help_            View this text\n  launch  <script> Start differents scripts\n  scripts  ╯\n\nLauch command: bun launch  (<script>)\n                 ╰ scripts\n\nScripts:\n  genservicefile  Generate a .service file\n  help            View this text"
 	}
 }
