@@ -94,7 +94,7 @@ export const execute = async (interaction: ChatInputCommandInteraction): Promise
 		`# ${EMOJIS.MMUN} Credits\n## ${EMOJIS.DISC_BOT} [Discord Bot](${LINKS.BOT_OAUTH})\n### Development/Contributors\n${embedPings(data.contributors)}`,
 		`### Graphism\n${embedPings(data.graphists)}`,
 		`### Testers/Bug reporters\n${embedPings(data.testers)}`,
-		`## ${EMOJIS.DISC_COMMUNITY} [Discord Guild](${LINKS.DISCORD_GUILD_CREDITS})\n### Moderators\n${embedPings(data.moderators)}`,
+		`## ${EMOJIS.DISC_COMMUNITY} [Discord Guild](${LINKS.DISCORD_GUILD.CREDITS})\n### Moderators\n${embedPings(data.moderators)}`,
 		`### Guild managers\n${embedPings(data.guild_managers)}`,
 	]
 	const textDisplays = texts.map(m => wrapInTextDisplay(m))

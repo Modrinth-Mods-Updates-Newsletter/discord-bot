@@ -47,7 +47,9 @@ export const EMOJIS = { // Replace with yours
 }
 
 export const LINKS = { // idem; replace with yours
-	DISCORD_GUILD_CREDITS: "https://discord.gg/WfF5mmUpX6",
+	DISCORD_GUILD: {
+		CREDITS: "https://discord.gg/WfF5mmUpX6"
+	},
 	BOT_OAUTH: "https://ptb.discord.com/oauth2/authorize?client_id="+process.env.CLIENT_ID,
 	BOT_WEBSITE: 'https://saddling-symphonic-consensus.ngrok-free.dev'
 }
