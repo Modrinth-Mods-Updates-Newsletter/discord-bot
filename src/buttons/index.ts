@@ -63,24 +63,29 @@ export class Button extends ButtonBuilder {
 	constructor (params: {
 		style: number,
 		label: string,
-		id: string,
+		id?: string,
 		emoji?: ComponentEmojiResolvable,
 		url?: string,
 		disabled?: boolean
 	}) {
 		super()
 		this.setStyle(params.style)
-			.setCustomId(params.id)
 			.setLabel(params.label)
 		switch (true) {
 			case !!params.emoji: {
 				this.setEmoji(params.emoji)
+				break
 			}
 			case !!params.url: {
 				this.setURL(params.url)
+				break
 			}
 			case !!params.disabled: {
 				this.setDisabled(params.disabled)
+				break
+			}
+			case !!params.id: {
+				this.setCustomId(params.id)
 			}
 		}
 	}
