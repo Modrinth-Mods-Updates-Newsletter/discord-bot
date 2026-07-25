@@ -5,7 +5,6 @@ import {
 	ActivityType,
 	Client,
 	Events,
-	GatewayIntentBits,
 	Routes,
 	type Interaction,
 	StringSelectMenuInteraction,
