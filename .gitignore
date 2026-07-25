@@ -1,5 +1,6 @@
 # Environement variables
 .env
+src/mmun_guild/constants.ts
 
 # Logs
 *.log
@@ -12,7 +13,7 @@ package-lock.json
 # Local storage
 data.json
 
-# Javascript generated & code archives
+# Javascript generated & .service 
 dist
 
 # Generated templates
