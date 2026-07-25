@@ -59,7 +59,7 @@ const registerCommands = async () => {
 		return false
 	}
 	await getRest().put(Routes.applicationCommands(clientId), { body: getCommands() })
-	console.log('Commands registered')
+	console.info('Commands registered')
 }
 
 client.on(Events.ClientReady, () => {
