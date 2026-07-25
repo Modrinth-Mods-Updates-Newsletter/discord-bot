@@ -74,7 +74,10 @@
 		},
 		"options": {
 			"config": {
-				"addamod": "Suivre les mises à jour d'un mod"
+				"addamod": {
+					"label": "Suivre les mises à jour d'un mod",
+					"description": "Recevoir toutes les mises à niveau pour un mod/plugin/modpack de votre choix !"
+				}
 			}
 		}
 	},

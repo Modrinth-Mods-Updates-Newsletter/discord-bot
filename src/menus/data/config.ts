@@ -1,8 +1,3 @@
-import type { DataId } from "../../utils/interfaces"
-import type { SelectMenuBuilder } from "../../utils/types"
-import type { MenuExecutable } from ".."
-import { execute } from "../execute/config"
-
 import {
 	getLangFromInteraction,
 	translate
@@ -13,6 +8,12 @@ import {
 	StringSelectMenuOptionBuilder,
 	type Interaction
 } from "discord.js"
+
+import type { DataId } from "../../utils/interfaces"
+import type { SelectMenuBuilder } from "../../utils/types"
+import type { MenuExecutable } from ".."
+import { execute } from "../execute/config"
+import { EMOJIS } from "../../constants"
 
 export const getData = (interaction: Interaction, params?: Record<string, any>): DataId<SelectMenuBuilder, MenuExecutable> => {
 	const lang = getLangFromInteraction(interaction)
@@ -34,6 +35,8 @@ export const getData = (interaction: Interaction, params?: Record<string, any>):
 
 export const getOptions = (lang: string) => [
 	new StringSelectMenuOptionBuilder()
-		.setLabel(translate('menus.options.config.addamod', lang))
+		.setLabel(translate('menus.options.config.addamod.label', lang))
 		.setValue('addamod')
+		.setEmoji(EMOJIS.FABRIC_ICON)
+		.setDescription(translate('menus.options.config.addamod.description', lang))
 ]

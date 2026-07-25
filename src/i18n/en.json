@@ -75,7 +75,10 @@
 		},
 		"options": {
 			"config": {
-				"addamod": "Follow a mod's updates"
+				"addamod": {
+					"label": "Follow a mod's updates",
+					"description": "Receive all the new updates for a mod/plugin/modpack of your choice!"
+				}
 			}
 		}
 	},
