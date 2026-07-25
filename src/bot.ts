@@ -12,7 +12,8 @@ import {
 	RoleSelectMenuInteraction,
 	UserSelectMenuInteraction,
 	ChannelSelectMenuInteraction,
-	type AnySelectMenuInteraction
+	type AnySelectMenuInteraction,
+	GatewayIntentBits
 } from "discord.js"
 
 import {
@@ -30,14 +31,19 @@ import { SessionStorage } from "./store/sessionStorage"
 import { handleModals } from "./modals"
 import { handleMenus } from "./menus"
 import { handleButtons } from "./buttons"
+import MMUNGuildExecute from './mmun_guild'
 
 if (!process.env.DISCORD_TOKEN) {
 	console.error('TOKEN is not set; cannot start bot')
 	process.exit(1)
 }
 
-const client = new Client({
-	intents: [],
+export const client = new Client({
+	intents: [
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.MessageContent
+	],
 	presence: {
 		status: 'idle',
 		activities: [{ name: translate('presence.watching.text', LANG.DEFAULT), type: ActivityType.Watching }],
@@ -107,5 +113,6 @@ client.on(Events.InteractionCreate, async (interaction: Interaction): Promise<bo
 	return false
 })
 
+MMUNGuildExecute(client)
 registerCommands().catch(console.error)
 client.login(token)

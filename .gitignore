@@ -1,5 +1,6 @@
 # Environement variables
 .env
+src/mmun_guild/constants.ts
 
 # Logs
 *.log
