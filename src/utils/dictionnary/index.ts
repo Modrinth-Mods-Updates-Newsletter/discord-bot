@@ -1,4 +1,4 @@
-import fields from "./fields.json" with { type: 'json' }
+import fields from "./fields"
 
 export const getOpposite = (str: string): string => {
 	for (const field of fields) {

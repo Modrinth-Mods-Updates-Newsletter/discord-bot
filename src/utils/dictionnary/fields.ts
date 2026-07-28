@@ -1,4 +1,4 @@
-[
+export default [
 	[ "Datapack", "datapack" ],
 	[ "Fabric", "fabric" ],
 	[ "Quilt", "quilt" ],
