@@ -25,8 +25,11 @@ import { getContainer as getFinalContainer } from '../../menus/execute/addamod'
 import { store } from "../../bot"
 
 export const execute = async (interaction: ModalSubmitInteraction): Promise<boolean> => {
-	await interaction.deferUpdate()
-		.catch(async () => await interaction.deferReply())
+	if (interaction.message) {
+		await interaction.deferUpdate()
+	} else {
+		await interaction.deferReply()
+	}
 	const lang: string = getLangFromInteraction(interaction)
 
 	const modId: string = interaction.fields.getTextInputValue('modId')
