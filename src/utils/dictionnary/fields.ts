@@ -1,3 +1,5 @@
+import { CHANNELS } from "../../mmun_guild/constants";
+
 export default [
 	[ "Datapack", "datapack" ],
 	[ "Fabric", "fabric" ],
@@ -8,5 +10,6 @@ export default [
 	[ "Purpur", "purpur" ],
 	[ "Spigot", "spigot" ],
 	[ "Folia", "folia" ],
-	[ "Bukkit", "bukkit" ]
+	[ "Bukkit", "bukkit" ],
+	[ CHANNELS.BOTS_UPDATES, CHANNELS.BOTS_UPDATES_SEND_HERE ]
 ]

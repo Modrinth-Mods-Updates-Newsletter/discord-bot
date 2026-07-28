@@ -1,4 +1,5 @@
 import type {
+	Channel,
 	ChannelSelectMenuBuilder,
 	MentionableSelectMenuBuilder,
 	RoleSelectMenuBuilder,
@@ -13,3 +14,5 @@ RoleSelectMenuBuilder |
 UserSelectMenuBuilder |
 MentionableSelectMenuBuilder
 export type Executable<I> = (interaction: I) => Promise<any>
+
+export type ChannelIdOrChannel = Channel | string
