@@ -23,6 +23,11 @@ import * as addamod_skip from './data/addamod_skip'
 export type ButtonExecutable = Executable<ButtonInteraction>
 export type IdButtonData = DataId<ButtonBuilder, ButtonExecutable>
 
+/**
+ * Get the buttons list
+ * @param {Interaction} interaction Interaction
+ * @returns {Array<IdButtonData>} Buttons data
+ */
 export const getButtonsList = (interaction: Interaction): IdButtonData[] => {
 	const buttons: {
 		getData: (interaction: Interaction) => IdButtonData
@@ -39,6 +44,12 @@ export const getButtonsList = (interaction: Interaction): IdButtonData[] => {
 	return list
 }
 
+/**
+ * Get the data of a button
+ * @param {string} id Button's id
+ * @param {Interaction} interaction Interaction
+ * @returns {IdButtonData} Button data
+ */
 export const getData = (id: string, interaction: Interaction): IdButtonData => {
 	const buttons: IdButtonData[] = getButtonsList(interaction)
 
@@ -48,17 +59,37 @@ export const getData = (id: string, interaction: Interaction): IdButtonData => {
 	
 	throw new Error(`Button with id ${id} not found`)
 }
+
+/**
+ * Get a button
+ * @param {string} id Button's id
+ * @param {Interaction} interaction Interaction
+ * @returns {ButtonBuilder} A button
+ */
 export const getButton = (id: string, interaction: Interaction): ButtonBuilder => getData(id, interaction).component
+/**
+ * Get a button's executable
+ * @param {string} id Button's id
+ * @param {Interaction} interaction Interaction
+ * @returns {ButtonExecutable} The execute of a button
+ */
 export const getExecute = (id: string, interaction: Interaction): ButtonExecutable => getData(id, interaction).execute
 
+/**
+ * Handle a button event
+ * @param {Interaction} interaction Interaction 
+ */
 export const handleButtons = async (interaction: ButtonInteraction): Promise<any> => {
-	const lang: string = getLangFromInteraction(interaction)
 	const id: string = interaction.customId
 
 	const execute: ButtonExecutable = getExecute(id, interaction)
 	return await execute(interaction)
 }
 
+/**
+ * A builder simpler than Discord.JS's
+ * @see {@link ButtonBuilder}
+ */
 export class Button extends ButtonBuilder {
 	constructor (params: {
 		style: number,
