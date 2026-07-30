@@ -9,8 +9,7 @@ import {
 } from "discord.js";
 
 import {
-	GIFS,
-	LANG
+	GIFS
 } from "../constants";
 
 import {

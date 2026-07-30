@@ -7,12 +7,6 @@ import {
 	Events,
 	Routes,
 	type Interaction,
-	StringSelectMenuInteraction,
-	MentionableSelectMenuInteraction,
-	RoleSelectMenuInteraction,
-	UserSelectMenuInteraction,
-	ChannelSelectMenuInteraction,
-	type AnySelectMenuInteraction,
 	GatewayIntentBits
 } from "discord.js"
 
@@ -32,12 +26,16 @@ import { handleModals } from "./modals"
 import { handleMenus } from "./menus"
 import { handleButtons } from "./buttons"
 import MMUNGuildExecute from './mmun_guild'
+import { isASelectMenu } from "./utils"
 
 if (!process.env.DISCORD_TOKEN) {
 	console.error('TOKEN is not set; cannot start bot')
 	process.exit(1)
 }
 
+/**
+ * Bot's client
+ */
 export const client = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,
@@ -50,13 +48,27 @@ export const client = new Client({
 	}
 })
 
+/**
+ * Bot's authorization token
+ */
 export const token = process.env.DISCORD_TOKEN
+/**
+ * Bot's client id
+ */
 export const clientId = process.env.DISCORD_CLIENT_ID
 
+/**
+ * Local storage
+ */
 export const store = new JsonStore()
+/**
+ * Session storage
+ */
 export const sessionStorage = new SessionStorage(client)
 
-const registerCommands = async () => {
+
+
+const registerCommands = async (): Promise<void | false> => {
 	if (!clientId) {
 		console.warn('CLIENT_ID is not set; skipping command registration')
 		return false
@@ -81,6 +93,11 @@ client.on(Events.InteractionCreate, async (interaction: Interaction): Promise<bo
 	return false
 })
 
+
+/**
+ * @todo Create a function with switch/case to handle the three interactions into one interaction
+ */
+
 client.on(Events.InteractionCreate, async (interaction: Interaction): Promise<boolean> => {
 	if (interaction.isModalSubmit()) {
 		await handleModals(interaction)
@@ -88,14 +105,6 @@ client.on(Events.InteractionCreate, async (interaction: Interaction): Promise<bo
 	}
 	return false
 })
-
-export const isASelectMenu = (interaction: Interaction): interaction is AnySelectMenuInteraction => {
-	return interaction instanceof StringSelectMenuInteraction ||
-		   interaction instanceof MentionableSelectMenuInteraction ||
-		   interaction instanceof RoleSelectMenuInteraction ||
-		   interaction instanceof UserSelectMenuInteraction ||
-		   interaction instanceof ChannelSelectMenuInteraction
-}
 
 client.on(Events.InteractionCreate, async (interaction: Interaction): Promise<boolean> => {
 	if (isASelectMenu(interaction)) {

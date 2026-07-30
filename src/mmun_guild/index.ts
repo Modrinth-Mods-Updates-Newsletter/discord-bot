@@ -15,6 +15,9 @@ export {
 	clientId
 }
 
+/**
+ * Events handler
+ */
 export default (client: Client<boolean>) => {
 	client.on(Events.MessageCreate, messageCreateExecute)
 }

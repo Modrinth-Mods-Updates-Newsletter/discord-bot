@@ -2,9 +2,9 @@ import axios from "axios"
 import { REGEX } from "../constants"
 
 /**
- * Simple function which fetch Modrinth's API
- * @param {string} modSlug The mod slug to fetch
- * @returns {Promise<object>} the data associated to the mod you asked
+ * A simple function which fetch Modrinth's API
+ * @param modSlug The mod slug to fetch
+ * @returns the data associated to the mod you asked
  */
 export const fetchModrinthAPI = async (modSlug: string): Promise<{
 	doesModExist?: boolean,

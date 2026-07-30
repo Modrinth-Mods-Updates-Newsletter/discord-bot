@@ -13,20 +13,25 @@ import {
 	type Interaction
 } from 'discord.js'
 
-import { getLangFromInteraction } from '../i18n'
 import { removeVars } from '../utils'
 
 import * as addamod_continue from './data/addamod_continue'
 import * as addamod_cancel from './data/addamod_cancel'
 import * as addamod_skip from './data/addamod_skip'
 
+/**
+ * Executable type for buttons
+ */
 export type ButtonExecutable = Executable<ButtonInteraction>
+/**
+ * Data type for buttons
+ */
 export type IdButtonData = DataId<ButtonBuilder, ButtonExecutable>
 
 /**
  * Get the buttons list
- * @param {Interaction} interaction Interaction
- * @returns {Array<IdButtonData>} Buttons data
+ * @param interaction Interaction
+ * @returns Buttons data
  */
 export const getButtonsList = (interaction: Interaction): IdButtonData[] => {
 	const buttons: {
@@ -46,9 +51,9 @@ export const getButtonsList = (interaction: Interaction): IdButtonData[] => {
 
 /**
  * Get the data of a button
- * @param {string} id Button's id
- * @param {Interaction} interaction Interaction
- * @returns {IdButtonData} Button data
+ * @param id Button's id
+ * @param interaction Interaction
+ * @returns Button data
  */
 export const getData = (id: string, interaction: Interaction): IdButtonData => {
 	const buttons: IdButtonData[] = getButtonsList(interaction)
@@ -62,22 +67,22 @@ export const getData = (id: string, interaction: Interaction): IdButtonData => {
 
 /**
  * Get a button
- * @param {string} id Button's id
- * @param {Interaction} interaction Interaction
- * @returns {ButtonBuilder} A button
+ * @param id Button's id
+ * @param interaction Interaction
+ * @returns A button
  */
 export const getButton = (id: string, interaction: Interaction): ButtonBuilder => getData(id, interaction).component
 /**
  * Get a button's executable
- * @param {string} id Button's id
- * @param {Interaction} interaction Interaction
- * @returns {ButtonExecutable} The execute of a button
+ * @param id Button's id
+ * @param interaction Interaction
+ * @returns The execute of a button
  */
 export const getExecute = (id: string, interaction: Interaction): ButtonExecutable => getData(id, interaction).execute
 
 /**
  * Handle a button event
- * @param {Interaction} interaction Interaction 
+ * @param interaction Interaction 
  */
 export const handleButtons = async (interaction: ButtonInteraction): Promise<any> => {
 	const id: string = interaction.customId
@@ -88,6 +93,8 @@ export const handleButtons = async (interaction: ButtonInteraction): Promise<any
 
 /**
  * A builder simpler than Discord.JS's
+ * @constructor {@link Button}
+ * @param params -
  * @see {@link ButtonBuilder}
  */
 export class Button extends ButtonBuilder {

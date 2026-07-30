@@ -1,5 +1,8 @@
 import { CHANNELS } from "../../mmun_guild/constants";
 
+/**
+ * Dictonnary fields
+ */
 export default [
 	[ "Datapack", "datapack" ],
 	[ "Fabric", "fabric" ],

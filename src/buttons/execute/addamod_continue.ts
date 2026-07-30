@@ -88,9 +88,9 @@ export const execute = async (interaction: ButtonInteraction): Promise<any> => {
 
 /**
  * When this function is called, the message is edited with the rights components
- * @param {ButtonInteraction} interaction Interaction
- * @param {number} index Emojis' index
- * @param {string | undefined} modName Mod's name
+ * @param interaction Interaction
+ * @param index Emojis' index
+ * @param modName Mod's name
  */
 export const editReply = (interaction: ButtonInteraction, index: number, modName?: string): Promise<any> => {
 	const lang: string = getLangFromInteraction(interaction)

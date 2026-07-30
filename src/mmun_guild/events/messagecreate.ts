@@ -19,6 +19,11 @@ export const execute = async (message: Message): Promise<void> => {
 	// Add many more channels here and in the dictionnary
 }
 
+/**
+ * Send a message as a guild by using integrations and following channels
+ * @param message Message
+ * @param channel Channel
+ */
 export const sendMessageAsAGuild = async (message: Message, channel: ChannelIdOrChannel): Promise<boolean> => {
 	if (!message.guild) return true
 	
