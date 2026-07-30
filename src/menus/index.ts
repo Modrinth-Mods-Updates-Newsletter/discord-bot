@@ -8,16 +8,21 @@ import type {
 	Data
 } from '../utils/interfaces'
 
-import type {
-	AnySelectMenuInteraction,
-	Interaction
+import {
+	StringSelectMenuBuilder,
+	StringSelectMenuOptionBuilder,
+	type AnySelectMenuInteraction,
+	type ComponentEmojiResolvable,
+	type Interaction
 } from 'discord.js'
+
+import {
+	isASelectMenu,
+	removeVars
+} from '../utils'
 
 import * as addamod from './data/addamod'
 import * as config from './data/config'
-
-import { isASelectMenu } from '../bot'
-import { removeVars } from '../utils'
 
 /**
  * Executable type for menus
@@ -86,10 +91,39 @@ export const getExecute = (interaction: Interaction, id: string): MenuExecutable
  * Handle a menu event
  * @param interaction Interaction
  */
-export const handleMenus = async (interaction: Interaction): Promise<any> => {
+export const handleMenus = async (interaction: AnySelectMenuInteraction): Promise<any> => {
 	if (!isASelectMenu(interaction)) throw new Error('Not a menu')
 
 	const id: string = interaction.customId
 	const execute: MenuExecutable = getExecute(interaction, id)
 	return await execute(interaction)
+}
+
+/**
+ * A simpler way to create string select menus
+ */
+export class StringSelectMenu extends StringSelectMenuBuilder {
+	constructor(array: {
+		label: string,
+		description: string,
+		value: string,
+		default?: boolean,
+		emoji?: ComponentEmojiResolvable
+	}[]) {
+		super()
+		const finalArray: StringSelectMenuOptionBuilder[] = []
+		for (const obj of array) {
+			const option = new StringSelectMenuOptionBuilder()
+				.setLabel(obj.label)
+				.setDescription(obj.description)
+				.setValue(obj.value)
+				.setDefault(obj.default || false)
+			if (obj.emoji) {
+				option.setEmoji(obj.emoji)
+			}
+
+			finalArray.push(option)
+		}
+		this.addOptions(finalArray)
+	}
 }

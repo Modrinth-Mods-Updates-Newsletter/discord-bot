@@ -14,9 +14,9 @@ import type {
 
 import { execute } from "../execute/addamod"
 import { translate } from "../../i18n"
-import { createStringSelectMenu } from "../../utils"
 import { EMOJIS } from "../../constants"
-import type { ModalExecutable } from ".."
+import { type ModalExecutable } from ".."
+import { StringSelectMenu } from "../../menus"
 
 export const getData = (lang: string): DataId<ModalBuilder, ModalExecutable> => {
 	const modal = new ModalBuilder()
@@ -34,7 +34,7 @@ export const getData = (lang: string): DataId<ModalBuilder, ModalExecutable> => 
 		.setDescription(translate("modals.addamod.modId.description", lang))
 		.setTextInputComponent(modIdInput)
 
-	const modLoadersSelect: StringSelectMenuBuilder = createStringSelectMenu([
+	const modLoadersSelect: StringSelectMenuBuilder = new StringSelectMenu([
 			{
 				label: "Datapack",
 				description: translate("modals.addamod.modLoaders.datapack", lang),

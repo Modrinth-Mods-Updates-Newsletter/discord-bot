@@ -60,32 +60,6 @@ export const arrayRand = (array: any[]): any => {
 }
 
 /**
- * A simpler way to create string select menus
- */
-export const createStringSelectMenu = (array: {
-	label: string,
-	description: string,
-	value: string,
-	default?: boolean,
-	emoji?: ComponentEmojiResolvable
-}[]): StringSelectMenuBuilder => {
-	const finalArray: StringSelectMenuOptionBuilder[] = []
-	for (const obj of array) {
-		const option = new StringSelectMenuOptionBuilder()
-			.setLabel(obj.label)
-			.setDescription(obj.description)
-			.setValue(obj.value)
-			.setDefault(obj.default || false)
-		if (obj.emoji) {
-			option.setEmoji(obj.emoji)
-		}
-
-		finalArray.push(option)
-	}
-	return new StringSelectMenuBuilder().addOptions(finalArray)
-}
-
-/**
  * Get vars from a string like a URL
  * @param str String
  * @returns Variables

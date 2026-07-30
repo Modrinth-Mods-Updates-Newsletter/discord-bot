@@ -8,7 +8,10 @@ import type {
 
 import {
 	type ModalSubmitInteraction,
-	type ModalBuilder
+	type ModalBuilder,
+	StringSelectMenuBuilder,
+	StringSelectMenuOptionBuilder,
+	type ComponentEmojiResolvable
 } from 'discord.js'
 
 import * as addamod from './data/addamod'
