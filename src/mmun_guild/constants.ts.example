@@ -2,6 +2,8 @@
  // ==> Replace the vars by yours <== // 
 ///////////////////////////////////////  
 
+import type { ReadonlyRecord } from "../utils/types"
+
 export default {
 	GUILD_ID: '1396868441440387112' // Real: 1396868441440387112; Test: 1525195132524036186
 }
@@ -10,7 +12,7 @@ export default {
  * Guild channels
  * @replace
  */
-export const CHANNELS = {
+export const CHANNELS: ReadonlyRecord<string, string> = {
 	ADD_THE_BOT: '1517520090088865792',
 	ADD_THE_BOT_SEND_HERE: '1530611228018216970',
 	RULES: '1515617747848007824',
