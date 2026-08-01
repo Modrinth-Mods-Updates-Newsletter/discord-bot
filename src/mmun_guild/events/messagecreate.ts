@@ -14,7 +14,15 @@ import { getOpposite } from "../../utils/dictionnary"
 import { CHANNELS } from "../constants"
 
 export const execute = async (message: Message): Promise<void> => {
+	sendMessageAsAGuild(message, CHANNELS.ADD_THE_BOT)
+	sendMessageAsAGuild(message, CHANNELS.RULES)
+	sendMessageAsAGuild(message, CHANNELS.OUR_AD)
+	sendMessageAsAGuild(message, CHANNELS.SERVER)
+	sendMessageAsAGuild(message, CHANNELS.ANIMATIONS)
 	sendMessageAsAGuild(message, CHANNELS.BOTS_UPDATES)
+	sendMessageAsAGuild(message, CHANNELS.GIVEAWAYS)
+	sendMessageAsAGuild(message, CHANNELS.STARBOARD)
+	sendMessageAsAGuild(message, CHANNELS.AD)
 
 	// Add many more channels here and in the dictionnary
 }
